@@ -6,16 +6,20 @@
  *  out the nuances. I encourage you to join the Facebook group ESP8266 at https://goo.gl/nb1rVq
  *  
  *  The purpose of this code is to use an ESP8266 to update the IP on domains.google.com 
+ *  
  *  The paradigm is simple: The code is in three major parts 
  *      Connect to your router.
  *      A GET request to https://api.ipify.org/ returns the public IP of your router.
  *      A GET request to domains.google.com with payload that include username:password 
  *      base64 encoded, the domain name that needs DDNS with the public IP   
  *      
+ *  Note: ESP8266 reconnects after a router reboot or repower. The sketch will 
+ *  automatically bet back to business as long as the router is up and running 
+ *  and has internet connectivity.    
+ *  
  *  Author: Raj Jain
  *  Date: Feb 20 2017
  */
-
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
